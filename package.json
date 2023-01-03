@@ -1,4 +1,13 @@
 {
+  "name": "cruise-ship.js",
+  "version": "1.0.0",
+  "description": "A cruise ship app",
+  "main": "cruise-ship.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Chris Edwards",
+  "license": "ISC",
   "devDependencies": {
     "jest": "^29.3.1"
   }

@@ -1,1 +1,1 @@
-A cruise sheep app by Chris Edwards.
+A cruise ship app by Chris Edwards.
