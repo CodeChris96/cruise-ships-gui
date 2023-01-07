@@ -5,6 +5,7 @@ describe("Port", () => {
     expect(new Port("port")).toBeInstanceOf(Object);
   });
   it("has a name", () => {
-    expect(new Port("port").port).toBe("port");
+    const port = new Port("Dover");
+    expect(port.port).toBe("Dover");
   });
 });
