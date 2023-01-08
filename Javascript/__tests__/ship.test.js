@@ -21,8 +21,9 @@ describe("Ship", () => {
 });
 
 it("can set sail", () => {
-  const port = new Port("Dover");
-  const itinerary = new Itinerary([port]);
+  const Dover = new Port("Dover");
+  const Calais = new Port("Calais");
+  const itinerary = new Itinerary([Dover, Calais]);
   const ship = new Ship("Titanic", itinerary);
 
   ship.setSail();
@@ -42,4 +43,16 @@ describe("Ship", () => {
 
     expect(ship.currentPort).toBe(dover);
   });
+});
+
+it("can't sail further than its itinerary", () => {
+  const dover = new Port("Dover");
+  const manchester = new Port("Manchester");
+  const itinerary = new Itinerary([dover, manchester]);
+  const ship = new Ship("Titanic", itinerary);
+
+  ship.setSail();
+  ship.dock();
+
+  expect(() => ship.setSail()).toThrowError("End of itinerary reached");
 });
