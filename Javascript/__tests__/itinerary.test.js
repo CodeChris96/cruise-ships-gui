@@ -3,17 +3,23 @@ const { Port } = require("../src/port.js");
 const { Itinerary } = require("../src/itinerary.js");
 
 describe("Itinerary", () => {
-  it("can be instantiated", () => {
-    expect(new Itinerary()).toBeInstanceOf(Object);
+  let itinerary;
+  let dover;
+  let manchester;
+  let ship;
+  beforeEach(() => {
+    dover = new Port("Dover");
+    manchester = new Port("Manchester");
+    itinerary = new Itinerary([dover, manchester]);
+    ship = new Ship("Titanic", itinerary);
+    queenMary = new Ship("Queen Mary", itinerary);
   });
-});
 
-describe("Itinerary", () => {
+  it("can be instantiated", () => {
+    expect(itinerary).toBeInstanceOf(Object);
+  });
+
   it("can have ports", () => {
-    const Dover = new Port("Dover");
-    const Manchester = new Port("Manchester");
-
-    const itinerary = new Itinerary([Dover, Manchester]);
-    expect(itinerary.ports).toEqual([Dover, Manchester]);
+    expect(itinerary.ports).toEqual([dover, manchester]);
   });
 });

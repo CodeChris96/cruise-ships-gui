@@ -15,9 +15,9 @@ class Port {
     this.ships.splice(shipIndex, 1);
   }
 
-  resetShip() {
-    this.ships = [];
-  }
+  // resetShip()
+  //   this.ships = [];
+  // }
 
   getShip(index) {}
 }
