@@ -1,18 +1,15 @@
 const { Port } = require("../src/port.js");
-const { Ship } = require("../src/ship.js");
-const { Itinerary } = require("../src/itinerary.js");
 
 describe("Port", () => {
-  let itinerary;
   let dover;
   let manchester;
   let ship;
+  let queenMary;
   beforeEach(() => {
     dover = new Port("Dover");
     manchester = new Port("Manchester");
-    itinerary = new Itinerary([dover, manchester]);
-    ship = new Ship("Titanic", itinerary);
-    queenMary = new Ship("Queen Mary", itinerary);
+    ship = jest.fn();
+    queenMary = jest.fn();
   });
 
   it("can be instantiated", () => {
