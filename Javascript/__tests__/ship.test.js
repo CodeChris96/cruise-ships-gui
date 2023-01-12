@@ -1,6 +1,5 @@
 /* globals describe it expect */
 const { Ship } = require("../src/ship.js");
-const { Itinerary } = require("../src/itinerary.js");
 
 describe("Ship", () => {
   let itinerary;
@@ -21,7 +20,9 @@ describe("Ship", () => {
       port: "manchester",
       ships: [],
     };
-    itinerary = new Itinerary([dover, manchester]);
+    itinerary = {
+      ports: [dover, manchester],
+    };
     ship = new Ship("Titanic", itinerary);
   });
 
@@ -44,7 +45,7 @@ describe("Ship", () => {
     ship.setSail();
     ship.dock();
     expect(ship.currentPort).toBe(manchester);
-    expect(ship.currentPort.addShip).toHaveBeenCalled();
+    expect(ship.currentPort.addShip).toHaveBeenCalledWith(ship);
   });
 
   it("can't sail further than its itinerary", () => {
@@ -55,6 +56,6 @@ describe("Ship", () => {
   });
 
   it("gets added to port on instantiation", () => {
-    expect(ship.currentPort.addShip).toHaveBeenCalled();
+    expect(ship.currentPort.addShip).toHaveBeenCalledWith(ship);
   });
 });
