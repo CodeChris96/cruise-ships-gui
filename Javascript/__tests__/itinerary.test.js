@@ -1,4 +1,5 @@
-const { Itinerary } = require("../src/itinerary.js");
+/* eslint-disable */
+const Itinerary = require("../src/itinerary.js");
 
 describe("Itinerary", () => {
   let itinerary;

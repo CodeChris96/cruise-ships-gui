@@ -1,5 +1,5 @@
-const { Port } = require("../src/port.js");
-const { Itinerary } = require("../src/itinerary.js");
+// const Port = require("../src/port.js");
+// const Itinerary = require("../src/itinerary.js");
 
 class Ship {
   constructor(boatName, itinerary) {
@@ -7,7 +7,6 @@ class Ship {
     this.itinerary = itinerary;
     this.previousPort = null;
     this.currentPort = itinerary.ports[0];
-
     this.currentPort.addShip(this);
   }
 
@@ -21,7 +20,7 @@ class Ship {
     this.currentPort = null;
   }
 
-  dock(port) {
+  dock() {
     const itinerary = this.itinerary;
     const previousPortIndex = itinerary.ports.indexOf(this.previousPort);
     this.currentPort = itinerary.ports[previousPortIndex + 1];
@@ -29,4 +28,11 @@ class Ship {
   }
 }
 
-module.exports = { Ship };
+(function exportPort() {
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = Ship;
+  } else {
+    window.Ship = Ship;
+  }
+}());
+

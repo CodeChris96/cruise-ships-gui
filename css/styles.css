@@ -1,0 +1,61 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#viewport {
+  width: 640px;
+  height: 256px;
+  position: relative;
+  overflow-x: auto;
+  background-image: url(../images/water0.png);
+};
+
+#ports {
+  width: 0px;
+  height: 20px;
+  margin-top: 96px;
+  display: flex;
+  justify-content: space-around;
+
+};
+
+#ports > .port {
+  width: 64px;
+  height: 32px !important;
+  background-image: url(../images/port.png);
+}  
+
+#ship {
+  position: absolute;
+  width: 128px;
+  height: 64px;
+  background-image: url(../images/ship.png);
+}
+
+#sail-button {
+  border: 0;
+  background-color: #FB3640;
+  border-bottom: 4px solid #d8040f;
+  color: white;
+  font-family: inherit;
+  padding: 10px 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-family: 'Press start 2P', cursive;
+}
+
+#sail-button:focus {
+  background-color: #d8040f;
+  border-bottom-width: 0;
+  padding-top: 14px;
+}

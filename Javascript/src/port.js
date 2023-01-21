@@ -1,25 +1,23 @@
-const { Ship } = require("../src/ship.js");
+  class Port {
+    constructor(portName) {
 
-class Port {
-  constructor(portName) {
-    this.port = portName;
-    this.ships = [];
+      this.name = portName;
+      this.ships = [];
+    }
+
+    addShip(Ship) {
+      this.ships.push(Ship);
+    }
+
+    removeShip(Ship) {
+      const shipIndex = this.ships.indexOf(Ship);
+      this.ships.splice(shipIndex, 1);
+    }
   }
-
-  addShip(ship) {
-    this.ships.push(ship);
+(function exportPort() {
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = Port;
+  } else {
+    window.Port = Port;
   }
-
-  removeShip(ship) {
-    const shipIndex = this.ships.indexOf(ship);
-    this.ships.splice(shipIndex, 1);
-  }
-
-  // resetShip()
-  //   this.ships = [];
-  // }
-
-  getShip(index) {}
-}
-
-module.exports = { Port };
+}());
